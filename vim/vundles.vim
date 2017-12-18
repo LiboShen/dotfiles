@@ -11,7 +11,7 @@
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/Vundle
 set rtp+=~/.vim/vundles/ "Submodules
 call vundle#begin()
 
