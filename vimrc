@@ -1,9 +1,9 @@
 " ================ General Config ====================
 set number
 set history=1000
-set novisualbell  " Don't flash
+set novisualbell  " Don't flash.
 set autoread
-set mouse=nv  " Mouse is good, as long as it doesn't mess contents.
+set mouse=n  " Mouse is good in normal moed.
 
 "turn on syntax highlighting
 syntax on
