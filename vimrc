@@ -1,13 +1,13 @@
 " ================ General Config ====================
 set number
 set history=1000
-set visualbell
+set novisualbell  " Don't flash
 set autoread
 
 "turn on syntax highlighting
 syntax on
 
-let mapleader = " "
+let mapleader = ","
 
 " =============== Vundle Initialization ===============
 " This loads all the plugins specified in ~/.vim/vundles.vim
@@ -70,11 +70,14 @@ set sidescroll=1
 " ================ Custom Settings ==================
 so ~/.vim/settings.vim
 
-
 " ================ Key Mappings  ===================
 " short-cut edit and reload .vimrc (fast iteration)
 nnoremap <leader>ev :sp $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+
 nnoremap <leader>n :NERDTreeToggle<cr>
+
+noremap H ^
+noremap L $
 inoremap jk<space> <esc>
 inoremap <c-j> <esc>
