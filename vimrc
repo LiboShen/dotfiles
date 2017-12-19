@@ -3,6 +3,7 @@ set number
 set history=1000
 set novisualbell  " Don't flash
 set autoread
+set mouse=nv  " Mouse is good, as long as it doesn't mess contents.
 
 "turn on syntax highlighting
 syntax on
