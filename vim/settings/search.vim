@@ -1,0 +1,1 @@
+nnoremap ,hl :noh<cr>
