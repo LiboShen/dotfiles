@@ -68,7 +68,16 @@ set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
 
+" ================ Theme ==================
+set termguicolors
+set background=dark
+let ayucolor="dark"
+" let ayucolor="mirage"
+" let ayucolor="light"
+colorscheme ayu
+
 " ================ Custom Settings ==================
+
 so ~/.vim/settings.vim
 
 " ================ Key Mappings  ===================
