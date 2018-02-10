@@ -12,7 +12,7 @@ mafredri/zsh-async # Perform tasks asynchronously
 # zsh-users/zsh-completions # Additional completion definitions for Zsh
 # zsh-users/zsh-autosuggestions branch:develop # Fish-like autosuggestions for zsh
 # junegunn/fzf # Command-line fuzzy finder
-# sindresorhus/pure # Pretty, minimal and fast zsh prompt
+sindresorhus/pure # Pretty, minimal and fast zsh prompt
 # zsh-users/zsh-history-substring-search # Zsh port of the fish shell's history search
 # zsh-users/zsh-syntax-highlighting # Fish shell like syntax highlighting for zsh
 
