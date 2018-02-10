@@ -1,5 +1,6 @@
 " Bundle "skwp/vim-colors-solarized"
 Bundle "itchyny/lightline.vim"
+Bundle "ayu-theme/ayu-vim"
 " Bundle "morhetz/gruvbox"
 " Bundle "xsunsmile/showmarks.git"
 " Bundle "chriskempson/base16-vim"
