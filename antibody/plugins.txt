@@ -1,0 +1,18 @@
+#caarlos0/git-add-remote kind:path # Easily add the upstream remote
+# b4b4r07/enhancd, use:init.sh # Better cd
+#caarlos0/ports kind:path # See what's happening on your computer's ports
+#caarlos0/zsh-git-fetch-merge kind:path # git fetch && git merge
+#caarlos0/zsh-git-sync kind:path # Sync git repositories and clean them up
+#caarlos0/zsh-open-pr kind:path #  Open pull requests from the command line
+mafredri/zsh-async # Perform tasks asynchronously
+# spwhitt/nix-zsh-completions
+# rupa/z # Jump around
+# sobolevn/wakatime-zsh-plugin # Wakatime tracking
+# Tarrasch/zsh-bd # Jump back to a specific directory
+# zsh-users/zsh-completions # Additional completion definitions for Zsh
+# zsh-users/zsh-autosuggestions branch:develop # Fish-like autosuggestions for zsh
+# junegunn/fzf # Command-line fuzzy finder
+# sindresorhus/pure # Pretty, minimal and fast zsh prompt
+# zsh-users/zsh-history-substring-search # Zsh port of the fish shell's history search
+# zsh-users/zsh-syntax-highlighting # Fish shell like syntax highlighting for zsh
+
