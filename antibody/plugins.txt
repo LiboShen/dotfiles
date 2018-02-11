@@ -14,5 +14,5 @@ mafredri/zsh-async # Perform tasks asynchronously
 # junegunn/fzf # Command-line fuzzy finder
 sindresorhus/pure # Pretty, minimal and fast zsh prompt
 # zsh-users/zsh-history-substring-search # Zsh port of the fish shell's history search
-# zsh-users/zsh-syntax-highlighting # Fish shell like syntax highlighting for zsh
+zsh-users/zsh-syntax-highlighting # Fish shell like syntax highlighting for zsh
 
