@@ -63,14 +63,14 @@ Bundle "wellle/targets.vim"
 " Bundle "henrik/vim-indexed-search"
 " Bundle "nelstrom/vim-visual-star-search"
 " Bundle "skwp/greplace.vim"
+Bundle "junegunn/fzf"
 Bundle "Lokaltog/vim-easymotion"
 
 " Project
 " ========================================
 Bundle "scrooloose/nerdtree.git"
-Bundle "ctrlpvim/ctrlp.vim"
+"Bundle "ctrlpvim/ctrlp.vim"
 "Bundle 'JazzCore/ctrlp-cmatcher'
-"Bundle 'junegunn/fzf'
 "Bundle "xolox/vim-misc"
 "Bundle "xolox/vim-session"
 
@@ -80,7 +80,7 @@ Bundle "ctrlpvim/ctrlp.vim"
 " Bundle "Raimondi/delimitMate"
 " Bundle "Shougo/neocomplete.git"
 " Bundle "briandoll/change-inside-surroundings.vim.git"
-Bundle "godlygeek/tabular"
+" Bundle "godlygeek/tabular"
 Bundle "tomtom/tcomment_vim.git"
 " Bundle "vim-scripts/camelcasemotion.git"
 " Bundle "vim-scripts/matchit.zip.git"
