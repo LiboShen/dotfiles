@@ -4,7 +4,7 @@ export DOTFILES="$HOME/dotfiles"
 # Fast interation
 alias sz='source ~/.zshrc'
 alias ez='$EDITOR ~/.zshrc'
-alias ea='$EDITOR ~/$DOTFILES/zsh/aliases.zsh'
+alias ea='$EDITOR $DOTFILES/zsh/aliases.zsh'
 
 # Load zsh plugins
 source ~/.zsh_plugins.sh
