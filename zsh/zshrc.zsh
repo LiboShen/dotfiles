@@ -4,7 +4,7 @@ export DOTFILES="$HOME/dotfiles"
 # Fast interation
 alias sz='source ~/.zshrc'
 alias ez='$EDITOR ~/.zshrc'
-alias ea='$EDITOR $DOTFILES/zsh/aliases.zsh'
+alias ea='$EDITOR ~/$DOTFILES/zsh/aliases.zsh'
 
 # Load zsh plugins
 source ~/.zsh_plugins.sh
@@ -21,12 +21,11 @@ setopt incappendhistory
 # Load aliases
 source "$DOTFILES/zsh/aliases.zsh"
 
-# Load fzf
+# TypeScript Settings
+NODE_PATH=$NODE_PATH:$HOME/node_modules
+
+if [ -f "$DOTFILES/private/zshrc.zsh" ]; then
+  source "$DOTFILES/private/zshrc.zsh"
+fi
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# zsh-history-substring-search key binding
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-
-bindkey '^P' history-substring-search-up
-bindkey '^N' history-substring-search-down
