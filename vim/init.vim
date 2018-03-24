@@ -77,17 +77,28 @@ let ayucolor="dark"
 colorscheme ayu
 
 " ================ Custom Settings ==================
-
 so ~/.vim/settings.vim
+autocmd BufWritePost *.ts !taze -files=true <afile>
 
 " ================ Key Mappings  ===================
 " short-cut edit and reload .vimrc (fast iteration)
 nnoremap <leader>ev :sp $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>ea :sp ~/dotfiles/vim/settings/abbr.vim<cr>
 
 nnoremap <leader>n :NERDTreeToggle<cr>
+nnoremap <leader>nn :NERDTreeToggle<cr>
+nnoremap <leader>nf :NERDTreeFind<cr>
+nnoremap <leader>o :FZF<cr>
 
 noremap H ^
 noremap L $
 inoremap jk<space> <esc>
 inoremap <c-j> <esc>
+noremap <F4> :call Term_toggle()<cr>
+
+" =============== Private Initialization ===============
+if filereadable(expand("~/dotfiles/private/init.vim"))
+  source ~/dotfiles/private/init.vim
+endif
+

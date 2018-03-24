@@ -3,3 +3,4 @@
 " Snippets
 abbr LI LOG(INFO) <<
 abbr LD LOG(DEBUG) <<
+abbr enviorenment environment
