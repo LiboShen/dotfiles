@@ -78,7 +78,6 @@ colorscheme ayu
 
 " ================ Custom Settings ==================
 so ~/.vim/settings.vim
-autocmd BufWritePost *.ts !taze -files=true <afile>
 
 " ================ Key Mappings  ===================
 " short-cut edit and reload .vimrc (fast iteration)
