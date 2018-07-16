@@ -21,6 +21,9 @@ setopt incappendhistory
 # Load aliases
 source "$DOTFILES/zsh/aliases.zsh"
 
+# Basic PATH
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH"
+
 # TypeScript Settings
 NODE_PATH=$NODE_PATH:$HOME/node_modules
 
@@ -32,3 +35,5 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+typeset -U PATH # Remove duplicates in $PATH
