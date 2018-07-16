@@ -92,12 +92,18 @@ nnoremap <leader>o :FZF<cr>
 
 noremap H ^
 noremap L $
-inoremap jk<space> <esc>
+" inoremap jk<space> <esc>
 inoremap <c-j> <esc>
 noremap <F4> :call Term_toggle()<cr>
+
+nnoremap <leader>b :GoBuild<cr>
+nnoremap <leader>r :GoRun<cr>
+nnoremap <leader>t :GoTest<cr>
 
 " =============== Private Initialization ===============
 if filereadable(expand("~/dotfiles/private/init.vim"))
   source ~/dotfiles/private/init.vim
 endif
 
+nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>jr :YcmCompleter GoToReferences<CR>

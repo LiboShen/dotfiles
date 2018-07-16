@@ -20,6 +20,10 @@ Plugin 'VundleVim/Vundle.vim'
 " Languages
 " ========================================
 Bundle "leafgarland/typescript-vim"
+Bundle "fatih/vim-go"
+" Bundle "Shougo/deoplete.nvim"
+" Bundle "zchee/deoplete-go"
+" let g:deoplete#enable_at_startup = 1
 
 " Git
 " ========================================
@@ -90,7 +94,14 @@ Bundle "tpope/vim-surround.git"
 " Bundle "goldfeld/ctrlr.vim"
 " Bundle "editorconfig/editorconfig-vim"
 Bundle "junegunn/goyo.vim"
+Bundle "Valloric/YouCompleteMe"
+
+Plugin 'google/vim-maktaba'
+Plugin 'google/vim-codefmt'
+Plugin 'google/vim-glaive'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+call glaive#Install()
