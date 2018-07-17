@@ -21,6 +21,9 @@ setopt incappendhistory
 # Load aliases
 source "$DOTFILES/zsh/aliases.zsh"
 
+# Basic PATH
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH"
+
 # TypeScript Settings
 NODE_PATH=$NODE_PATH:$HOME/node_modules
 
@@ -29,3 +32,5 @@ if [ -f "$DOTFILES/private/zshrc.zsh" ]; then
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+typeset -U PATH # Remove duplicates in $PATH
