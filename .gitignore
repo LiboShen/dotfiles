@@ -1,5 +1,6 @@
 vim/bundle/*
+vim/plugged/*
 .netwhist
 private
 private/*
-
+*.orig

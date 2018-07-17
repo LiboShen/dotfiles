@@ -10,13 +10,87 @@ syntax on
 
 let mapleader = ","
 
-" =============== Vundle Initialization ===============
-" This loads all the plugins specified in ~/.vim/vundles.vim
-" Use Vundle plugin to manage all other plugins
-if filereadable(expand("~/.vim/vundles.vim"))
-  source ~/.vim/vundles.vim
-endif
-au BufNewFile,BufRead *.vundle set filetype=vim
+" ================== plugins ========================
+call plug#begin('~/.vim/plugged')
+
+" General
+Plug 'scrooloose/nerdtree'
+Plug 'junegunn/fzf'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'romainl/vim-cool'
+Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+
+" Languages
+Plug 'leafgarland/typescript-vim'
+Plug 'fatih/vim-go', { 'for': 'go' }
+
+" Git
+" ========================================
+
+" Appearance
+" ========================================
+Plug 'itchyny/lightline.vim'
+Plug 'ayu-theme/ayu-vim'
+" Plug 'morhetz/gruvbox'
+" Plug 'chriskempson/base16-vim'
+
+" Textobjects
+" ========================================
+" These bundles introduce new textobjects into vim,
+" For example the Ruby one introduces the 'r' text object
+" such that 'var' gives you Visual Around Ruby
+
+" Plug 'kana/vim-textobj-function'
+" Plug 'kana/vim-textobj-user'
+" Plug 'thinca/vim-textobj-function-javascript'
+Plug 'wellle/targets.vim'
+
+" Search
+" ========================================
+" Plug 'nelstrom/vim-visual-star-search'
+" Plug 'skwp/greplace.vim'
+
+" Project
+" ========================================
+"Plug 'xolox/vim-misc'
+"Plug 'xolox/vim-session'
+
+" Enhancements
+" ========================================
+Plug 'mhinz/vim-signify'
+" Plug 'AndrewRadev/splitjoin.vim'
+" Plug 'Raimondi/delimitMate'
+" Plug 'Shougo/neocomplete'
+" Plug 'briandoll/change-inside-surroundings.vim'
+" Plug 'godlygeek/tabular'
+" Plug 'vim-scripts/camelcasemotion'
+" Plug 'vim-scripts/matchit.zip'
+" Plug 'kristijanhusak/vim-multiple-cursors'
+" Plug 'Keithbsmiley/investigate.vim'
+" Plug 'chrisbra/NrrwRgn'
+" Plug 'christoomey/vim-tmux-navigator'
+" Plug 'MarcWeber/vim-addon-mw-utils'
+" Plug 'bogado/file-line'
+" Plug 'mattn/webapi-vim'
+" Plug 'sjl/gundo.vim'
+" Plug 'skwp/YankRing.vim'
+" Plug 'tomtom/tlib_vim'
+Plug 'tpope/vim-abolish'
+" Plug 'tpope/vim-endwise'
+" Plug 'tpope/vim-ragtag'
+" Plug 'tpope/vim-unimpaired'
+" Plug 'vim-scripts/AnsiEsc.vim'
+" Plug 'vim-scripts/AutoTag'
+" Plug 'vim-scripts/lastpos.vim'
+" Plug 'vim-scripts/sudo.vim'
+" Plug 'goldfeld/ctrlr.vim'
+" Plug 'editorconfig/editorconfig-vim'
+Plug 'junegunn/goyo.vim'
+
+" All of your Plugins must be added before the following line
+call plug#end()            " required
 
 " ================ Turn Off Swap Files ==============
 
@@ -102,11 +176,15 @@ noremap <F4> :call Term_toggle()<cr>
 nnoremap <leader>b :GoBuild<cr>
 nnoremap <leader>r :GoRun<cr>
 nnoremap <leader>t :GoTest<cr>
+nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>jr :YcmCompleter GoToReferences<CR>
 
 " =============== Private Initialization ===============
 if filereadable(expand("~/dotfiles/private/init.vim"))
   source ~/dotfiles/private/init.vim
+else
+  call plug#begin('~/.vim/plugged')
+  Plug 'Valloric/YouCompleteMe'
+  call plug#end
 endif
 
-nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
-nnoremap <leader>jr :YcmCompleter GoToReferences<CR>
