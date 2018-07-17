@@ -31,6 +31,9 @@ if [ -f "$DOTFILES/private/zshrc.zsh" ]; then
   source "$DOTFILES/private/zshrc.zsh"
 fi
 
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 typeset -U PATH # Remove duplicates in $PATH
