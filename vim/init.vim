@@ -92,7 +92,7 @@ nnoremap <leader>o :FZF<cr>
 
 noremap H ^
 noremap L $
-inoremap jk<space> <esc>
+" inoremap jk<space> <esc>
 inoremap <c-j> <esc>
 noremap <F4> :call Term_toggle()<cr>
 
