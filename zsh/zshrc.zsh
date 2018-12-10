@@ -23,6 +23,7 @@ source "$DOTFILES/zsh/aliases.zsh"
 
 # Basic PATH
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH"
+export PATH=$PATH:$HOME/bin
 
 # TypeScript Settings
 NODE_PATH=$NODE_PATH:$HOME/node_modules
