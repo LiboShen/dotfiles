@@ -50,6 +50,7 @@ Plug 'wellle/targets.vim'
 " Search
 " ========================================
 " Plug 'nelstrom/vim-visual-star-search'
+Plug 'rking/ag.vim'
 " Plug 'skwp/greplace.vim'
 
 " Project
@@ -91,6 +92,10 @@ Plug 'junegunn/goyo.vim'
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
+
+
+" ================ Spell Check ================
+set spell
 
 " ================ Turn Off Swap Files ==============
 
