@@ -9,6 +9,8 @@ alias ea='$EDITOR $DOTFILES/zsh/aliases.zsh'
 # Load zsh plugins
 source ~/.zsh_plugins.sh
 
+bindkey -v
+
 # History
 HISTFILESIZE=8000
 HISTSIZE=80000
@@ -17,6 +19,8 @@ SAVEHIST=8000
 setopt appendhistory
 setopt sharehistory
 setopt incappendhistory
+bindkey '^P' up-history
+bindkey '^N' down-history
 
 # Load aliases
 source "$DOTFILES/zsh/aliases.zsh"
@@ -38,3 +42,7 @@ export PATH=$PATH:$GOPATH/bin
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 typeset -U PATH # Remove duplicates in $PATH
+
+fpath=("$DOTFILES/zsh" "${fpath[@]}")
+
+autoload -Uz kp ks ll

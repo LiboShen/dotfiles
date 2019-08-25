@@ -32,7 +32,8 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 " Appearance
 " ========================================
 Plug 'itchyny/lightline.vim'
-Plug 'ayu-theme/ayu-vim'
+" Plug 'ayu-theme/ayu-vim'
+Plug 'nikitavoloboev/vim-monokai-night' " Theme
 " Plug 'morhetz/gruvbox'
 " Plug 'chriskempson/base16-vim'
 
@@ -81,7 +82,7 @@ Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-abolish'
 " Plug 'tpope/vim-endwise'
 " Plug 'tpope/vim-ragtag'
-" Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-unimpaired'
 " Plug 'vim-scripts/AnsiEsc.vim'
 " Plug 'vim-scripts/AutoTag'
 " Plug 'vim-scripts/lastpos.vim'
@@ -89,6 +90,7 @@ Plug 'tpope/vim-abolish'
 " Plug 'goldfeld/ctrlr.vim'
 " Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/goyo.vim'
+Plug 'chaoren/vim-wordmotion'
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
@@ -150,10 +152,11 @@ set sidescroll=1
 " ================ Theme ==================
 set termguicolors
 set background=dark
-let ayucolor="dark"
+" let ayucolor="dark"
 " let ayucolor="mirage"
 " let ayucolor="light"
-colorscheme ayu
+" colorscheme ayu
+colorscheme monokai-night
 
 " ================ Custom Settings ==================
 so ~/.vim/settings.vim
@@ -173,7 +176,6 @@ noremap H ^
 noremap L $
 inoremap jk <esc>`^
 inoremap kj <esc>
-inoremap lkj <esc>:w<cr>
 inoremap <esc> <nop>
 " inoremap <c-j> <esc>
 noremap <F4> :call Term_toggle()<cr>
@@ -183,6 +185,16 @@ nnoremap <leader>r :GoRun<cr>
 nnoremap <leader>t :GoTest<cr>
 nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>jr :YcmCompleter GoToReferences<CR>
+
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+
+nnoremap <C-s> :w<CR>
+
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent! loadview
 
 " =============== Private Initialization ===============
 if filereadable(expand("~/dotfiles/private/init.vim"))
