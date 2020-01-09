@@ -21,6 +21,7 @@ Plug 'romainl/vim-cool'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'kamykn/spelunker.vim'
 
 " Languages
 Plug 'leafgarland/typescript-vim'
@@ -97,7 +98,7 @@ call plug#end()            " required
 
 
 " ================ Spell Check ================
-set spell
+set nospell
 
 " ================ Turn Off Swap Files ==============
 
