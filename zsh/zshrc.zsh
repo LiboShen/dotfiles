@@ -9,7 +9,12 @@ alias ea='$EDITOR $DOTFILES/zsh/aliases.zsh'
 # Load zsh plugins
 source ~/.zsh_plugins.sh
 
+# vim mode keybinding
 bindkey -v
+export KEYTIMEOUT=15 # Reduce the lag
+bindkey '^P' up-history
+bindkey '^N' down-history
+bindkey jk vi-cmd-mode # switch normal mode, like the vim setting.
 
 # History
 HISTFILESIZE=8000
@@ -19,8 +24,6 @@ SAVEHIST=8000
 setopt appendhistory
 setopt sharehistory
 setopt incappendhistory
-bindkey '^P' up-history
-bindkey '^N' down-history
 
 # Load aliases
 source "$DOTFILES/zsh/aliases.zsh"
