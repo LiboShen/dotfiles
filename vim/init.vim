@@ -1,3 +1,4 @@
+filetype off
 " ================ General Config ====================
 set number
 set history=1000
@@ -25,6 +26,9 @@ Plug 'tpope/vim-surround'
 " Languages
 Plug 'leafgarland/typescript-vim'
 Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'elixir-editors/vim-elixir'
+Plug 'slashmili/alchemist.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Git
 " ========================================
@@ -80,6 +84,7 @@ Plug 'mhinz/vim-signify'
 " Plug 'skwp/YankRing.vim'
 " Plug 'tomtom/tlib_vim'
 Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-fugitive'
 " Plug 'tpope/vim-endwise'
 " Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-unimpaired'
@@ -125,8 +130,8 @@ set tabstop=2
 set expandtab
 
 " Auto indent pasted text
-nnoremap p p=`]<C-o>
-nnoremap P P=`]<C-o>
+nnoremap p p=`]
+nnoremap P P=`]
 
 filetype plugin on
 filetype indent on
@@ -196,12 +201,19 @@ nnoremap <C-s> :w<CR>
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent! loadview
 
+" coc configs
+" use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+
 " =============== Private Initialization ===============
 if filereadable(expand("~/dotfiles/private/init.vim"))
   source ~/dotfiles/private/init.vim
-else
-  call plug#begin('~/.vim/plugged')
-  Plug 'Valloric/YouCompleteMe'
-  call plug#end
 endif
-
