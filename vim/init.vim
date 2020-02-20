@@ -167,10 +167,15 @@ colorscheme monokai-night
 " ================ Custom Settings ==================
 so ~/.vim/settings.vim
 
-" ================ Key Mappings  ===================
-" short-cut edit and reload .vimrc (fast iteration)
-nnoremap <leader>ev :sp $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
+" -----------------------------------------------------------------------------
+" Basic mappings
+" -----------------------------------------------------------------------------
+" Edit Vim config file in a new tab.
+nnoremap <Leader>ev :tabnew $MYVIMRC<CR>
+
+" Source Vim config file.
+nnoremap <Leader>sv :source $MYVIMRC<CR>
+
 nnoremap <leader>ea :sp ~/dotfiles/vim/settings/abbr.vim<cr>
 
 nnoremap <leader>n :NERDTreeToggle<cr>
@@ -189,8 +194,8 @@ noremap <F4> :call Term_toggle()<cr>
 nnoremap <leader>b :GoBuild<cr>
 nnoremap <leader>r :GoRun<cr>
 nnoremap <leader>t :GoTest<cr>
-nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
-nnoremap <leader>jr :YcmCompleter GoToReferences<CR>
+" nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
+" nnoremap <leader>jr :YcmCompleter GoToReferences<CR>
 
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
@@ -202,7 +207,9 @@ nnoremap <C-s> :w<CR>
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent! loadview
 
-" coc configs
+" -----------------------------------------------------------------------------
+" coc.nvim configs
+" -----------------------------------------------------------------------------
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -213,6 +220,29 @@ inoremap <silent><expr> <Tab>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" -----------------------------------------------------------------------------
+" Basic autocommands
+" -----------------------------------------------------------------------------
+
+" Auto-resize splits when Vim gets resized.
+autocmd VimResized * wincmd =
+
+" Update a buffer's contents on focus if it changed outside of Vim.
+au FocusGained,BufEnter * :checktime
+
+" Unset paste on InsertLeave.
+autocmd InsertLeave * silent! set nopaste
 
 " =============== Private Initialization ===============
 if filereadable(expand("~/dotfiles/private/init.vim"))
