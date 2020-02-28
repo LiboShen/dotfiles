@@ -10,6 +10,7 @@ set mouse=n  " Mouse is good in normal moed.
 syntax on
 
 let mapleader = ","
+let $VIMRCDIR = fnamemodify(expand("$MYVIMRC"), ":p:h")
 
 " ================== plugins ========================
 call plug#begin('~/.vim/plugged')
@@ -165,7 +166,7 @@ set background=dark
 colorscheme monokai-night
 
 " ================ Custom Settings ==================
-so ~/.vim/settings.vim
+so $VIMRCDIR/settings.vim
 
 " -----------------------------------------------------------------------------
 " Basic mappings
