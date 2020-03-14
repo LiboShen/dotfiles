@@ -1,0 +1,11 @@
+[user]
+  name = Libo
+  email = liboooshen@gmail.com
+[alias]
+  co = checkout
+  ci = commit
+  re = rebase
+  st = status
+[core]
+  excludesfile = ~/.gitignore_global
+
