@@ -30,6 +30,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'elixir-editors/vim-elixir'
 Plug 'slashmili/alchemist.vim'
+Plug 'andys8/vim-elm-syntax'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Git
