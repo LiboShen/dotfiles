@@ -4,7 +4,7 @@ set number
 set history=1000
 set novisualbell  " Don't flash.
 set autoread
-set mouse=n  " Mouse is good in normal moed.
+set mouse=n  " Mouse is good in normal mode.
 
 "turn on syntax highlighting
 syntax on
@@ -63,13 +63,13 @@ Plug 'rking/ag.vim'
 
 " Project
 " ========================================
-"Plug 'xolox/vim-misc'
 "Plug 'xolox/vim-session'
+Plug 'tpope/vim-projectionist'
+Plug 'janko/vim-test'
 
 " Enhancements
 " ========================================
 Plug 'mhinz/vim-signify'
-" Plug 'AndrewRadev/splitjoin.vim'
 " Plug 'Raimondi/delimitMate'
 " Plug 'Shougo/neocomplete'
 " Plug 'briandoll/change-inside-surroundings.vim'
@@ -193,9 +193,6 @@ inoremap <esc> <nop>
 " inoremap <c-j> <esc>
 noremap <F4> :call Term_toggle()<cr>
 
-nnoremap <leader>b :GoBuild<cr>
-nnoremap <leader>r :GoRun<cr>
-nnoremap <leader>t :GoTest<cr>
 " nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
 " nnoremap <leader>jr :YcmCompleter GoToReferences<CR>
 
@@ -315,6 +312,16 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+
+" -----------------------------------------------------------------------------
+" vim-test
+" -----------------------------------------------------------------------------
+nmap <silent> tn :TestNearest<CR>
+nmap <silent> tf :TestFile<CR>
+nmap <silent> ts :TestSuite<CR>
+nmap <silent> tl :TestLast<CR>
+nmap <silent> tg :TestVisit<CR>
 
 " -----------------------------------------------------------------------------
 " Basic autocommands
