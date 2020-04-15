@@ -42,17 +42,10 @@ Plug 'itchyny/lightline.vim'
 " Plug 'ayu-theme/ayu-vim'
 Plug 'nikitavoloboev/vim-monokai-night' " Theme
 " Plug 'morhetz/gruvbox'
-" Plug 'chriskempson/base16-vim'
 
 " Textobjects
 " ========================================
-" These bundles introduce new textobjects into vim,
-" For example the Ruby one introduces the 'r' text object
-" such that 'var' gives you Visual Around Ruby
-
-" Plug 'kana/vim-textobj-function'
 " Plug 'kana/vim-textobj-user'
-" Plug 'thinca/vim-textobj-function-javascript'
 Plug 'wellle/targets.vim'
 
 " Search
@@ -70,33 +63,17 @@ Plug 'janko/vim-test'
 " Enhancements
 " ========================================
 Plug 'mhinz/vim-signify'
-" Plug 'Raimondi/delimitMate'
-" Plug 'Shougo/neocomplete'
-" Plug 'briandoll/change-inside-surroundings.vim'
-" Plug 'godlygeek/tabular'
-" Plug 'vim-scripts/camelcasemotion'
-" Plug 'vim-scripts/matchit.zip'
+Plug 'andymass/vim-matchup'
+Plug 'bogado/file-line'
 " Plug 'kristijanhusak/vim-multiple-cursors'
-" Plug 'Keithbsmiley/investigate.vim'
 " Plug 'chrisbra/NrrwRgn'
 " Plug 'christoomey/vim-tmux-navigator'
-" Plug 'MarcWeber/vim-addon-mw-utils'
-" Plug 'bogado/file-line'
-" Plug 'mattn/webapi-vim'
-" Plug 'sjl/gundo.vim'
+" Plug 'mbbill/undotree'
 " Plug 'skwp/YankRing.vim'
 " Plug 'tomtom/tlib_vim'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive'
-" Plug 'tpope/vim-endwise'
-" Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-unimpaired'
-" Plug 'vim-scripts/AnsiEsc.vim'
-" Plug 'vim-scripts/AutoTag'
-" Plug 'vim-scripts/lastpos.vim'
-" Plug 'vim-scripts/sudo.vim'
-" Plug 'goldfeld/ctrlr.vim'
-" Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/goyo.vim'
 Plug 'chaoren/vim-wordmotion'
 
