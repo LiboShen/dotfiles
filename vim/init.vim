@@ -39,7 +39,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Appearance
 " ========================================
 Plug 'itchyny/lightline.vim'
-" Plug 'ayu-theme/ayu-vim'
+Plug 'ayu-theme/ayu-vim'
 Plug 'nikitavoloboev/vim-monokai-night' " Theme
 " Plug 'morhetz/gruvbox'
 
@@ -165,7 +165,7 @@ nnoremap <leader>o :FZF<cr>
 noremap H ^
 noremap L $
 inoremap jk <esc>`^
-inoremap kj <esc>
+" inoremap kj <esc>
 inoremap <esc> <nop>
 " inoremap <c-j> <esc>
 noremap <F4> :call Term_toggle()<cr>
@@ -294,11 +294,14 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 " -----------------------------------------------------------------------------
 " vim-test
 " -----------------------------------------------------------------------------
-nmap <silent> tn :TestNearest<CR>
-nmap <silent> tf :TestFile<CR>
-nmap <silent> ts :TestSuite<CR>
-nmap <silent> tl :TestLast<CR>
-nmap <silent> tg :TestVisit<CR>
+" make test commands execute using :term
+let test#strategy = "neovim"
+nnoremap <silent> tn :TestNearest<CR>
+nnoremap <silent> tf :TestFile<CR>
+nnoremap <silent> ts :TestSuite<CR>
+nnoremap <silent> tl :TestLast<CR>
+nnoremap <silent> tt :TestLast<CR>
+nnoremap <silent> tg :TestVisit<CR>
 
 " -----------------------------------------------------------------------------
 " Basic autocommands
