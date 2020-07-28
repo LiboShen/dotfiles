@@ -4,3 +4,6 @@
 abbr LI LOG(INFO) <<
 abbr LD LOG(DEBUG) <<
 abbr enviorenment environment
+
+autocmd FileType elixir :iabbrev <buffer> pp \|>
+autocmd FileType elm :iabbrev <buffer> pp \|>
