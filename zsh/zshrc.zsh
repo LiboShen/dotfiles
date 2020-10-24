@@ -14,6 +14,8 @@ bindkey -v
 export KEYTIMEOUT=15 # Reduce the lag
 bindkey '^P' up-history
 bindkey '^N' down-history
+bindkey -M vicmd -s 'L' '$'
+bindkey -M vicmd -s 'H' '0'
 bindkey jk vi-cmd-mode # switch normal mode, like the vim setting.
 
 # History
@@ -41,6 +43,9 @@ fi
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+
+# Elixir/Erlang REPL history.
+export ERL_AFLAGS="-kernel shell_history enabled"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
