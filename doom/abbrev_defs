@@ -1,0 +1,11 @@
+;;-*-coding: utf-8;-*-
+(define-abbrev-table 'elixir-mode-abbrev-table
+  '(
+    ("pp" "|>" nil :count 21)
+   ))
+
+(define-abbrev-table 'reason-mode-abbrev-table
+  '(
+    ("pp" "|>" nil :count 0)
+   ))
+
