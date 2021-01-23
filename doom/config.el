@@ -26,6 +26,8 @@
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/notes/org/")
+(setq org-roam-directory "~/notes/roam/")
+(setq deft-directory "~/notes/roam/")
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -49,6 +51,20 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+;; General key mappings
+(map! :nv "L" 'evil-end-of-visual-line)
+(map! :nv "H" 'evil-beginning-of-visual-line)
+(map! :nv "j" 'evil-next-visual-line)
+(map! :nv "k" 'evil-previous-visual-line)
+(map! :n "] g" 'flycheck-next-error)
+(map! :n "[ g" 'flycheck-previous-error)
+(map! :n "C-s" 'save-buffer)
+
+(map! :map ivy-minibuffer-map
+      :ni "C-<return>" 'ivy-immediate-done)
+
+
+;; language servers
 (use-package! lsp
   :defer
   :init
@@ -77,14 +93,8 @@
   (add-hook! reason-mode (add-hook 'before-save-hook 'refmt-before-save))
   )
 
-(map! :nv "L" 'evil-end-of-line)
-(map! :nv "H" 'evil-beginning-of-line)
-(map! :n "] g" 'flycheck-next-error)
-(map! :n "[ g" 'flycheck-previous-error)
 
-(map! :map ivy-minibuffer-map
-      :ni "C-<return>" 'ivy-immediate-done)
-
+;; Abbreviations
 (setq abbrev-file-name             ;; tell emacs where to read abbrev
       "~/.doom.d/abbrev_defs")    ;; definitions from...
 (setq save-abbrevs 'silent)        ;; save abbrevs when files are saved
