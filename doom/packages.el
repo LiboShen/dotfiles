@@ -50,3 +50,4 @@
 ;(unpin! t)
 
 (package! reason-mode)
+(package! slack)

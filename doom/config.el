@@ -23,6 +23,9 @@
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-one)
 
+;; Auth sources
+(setq auth-sources '((:source "~/keys/.authinfo")))
+
 ;; General key mappings
 (map! :nv "L" 'evil-end-of-visual-line)
 (map! :nv "H" 'evil-beginning-of-visual-line)
@@ -131,3 +134,52 @@ same directory as the org-buffer and insert a link to this file."
 (setq-default abbrev-mode t)
 
 (sp-local-pair 'reason-mode "`" nil :actions nil) ;; disable this smartparens for reason mode.
+
+(use-package! slack
+  :commands (slack-start)
+  :init
+  (setq slack-buffer-emojify t) ;; if you want to enable emoji, default nil
+  (setq slack-prefer-current-team t)
+  :config
+  (slack-register-team
+   :name "Programmai"
+   :default t
+   :token (auth-source-pick-first-password
+           :host "programmai.slack.com"
+           :user "libo")
+   :subscribed-channels '(dev-backend, general)
+   :mark-as-read-immediately nil
+   :modeline-enabled t
+   :full-and-display-names t)
+
+  (map! :n :map slack-info-mode-map
+        :localleader
+    "u" 'slack-room-update-messages)
+  (map! :n :map slack-mode-map
+    "\C-n" 'slack-buffer-goto-next-message
+    "\C-p" 'slack-buffer-goto-prev-message
+        :localleader
+    "c" 'slack-buffer-kill
+    "ra" 'slack-message-add-reaction
+    "rr" 'slack-message-remove-reaction
+    "rs" 'slack-message-show-reaction-users
+    "pl" 'slack-room-pins-list
+    "pa" 'slack-message-pins-add
+    "pr" 'slack-message-pins-remove
+    "mm" 'slack-message-write-another-buffer
+    "me" 'slack-message-edit
+    "md" 'slack-message-delete
+    "u" 'slack-room-update-messages
+    "2" 'slack-message-embed-mention
+    "3" 'slack-message-embed-channel)
+   (map! :n :map slack-edit-message-mode-map
+         :localleader
+    "k" 'slack-message-cancel-edit
+    "s" 'slack-message-send-from-buffer
+    "2" 'slack-message-embed-mention
+    "3" 'slack-message-embed-channel))
+
+(use-package! alert
+  :commands (alert)
+  :init
+  (setq alert-default-style 'notifier))
