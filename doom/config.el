@@ -101,12 +101,8 @@ same directory as the org-buffer and insert a link to this file."
 (use-package! lsp
   :defer
   :init
-    (add-to-list 'exec-path "~/bin/elixir-ls")
-  :hook
-  (elixir-mode . lsp)
-  )
-
-(after! lsp-mode
+  (add-to-list 'exec-path "~/bin/elixir-ls")
+  :config
   (lsp-register-client
    (make-lsp-client :new-connection (lsp-stdio-connection
                                      (-const "reason-language-server"))
@@ -116,9 +112,12 @@ same directory as the org-buffer and insert a link to this file."
                     :server-id 'reason-ls))
   ;; handle yasnippet by myself
   (setq lsp-enable-snippet nil)
+  (setq lsp-enable-file-watchers nil)
   (push "[/\\\\]_build" lsp-file-watch-ignored )
   (push "[/\\\\]deps" lsp-file-watch-ignored )
   (push "[/\\\\].elixir_ls" lsp-file-watch-ignored )
+  :hook
+  (elixir-mode . lsp)
   )
 
 (after! reason-mode
