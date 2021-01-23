@@ -154,30 +154,30 @@ same directory as the org-buffer and insert a link to this file."
 
   (map! :n :map slack-info-mode-map
         :localleader
-    "u" 'slack-room-update-messages)
+        "u" 'slack-room-update-messages)
   (map! :n :map slack-mode-map
-    "\C-n" 'slack-buffer-goto-next-message
-    "\C-p" 'slack-buffer-goto-prev-message
+        "\C-n" 'slack-buffer-goto-next-message
+        "\C-p" 'slack-buffer-goto-prev-message
         :localleader
-    "c" 'slack-buffer-kill
-    "ra" 'slack-message-add-reaction
-    "rr" 'slack-message-remove-reaction
-    "rs" 'slack-message-show-reaction-users
-    "pl" 'slack-room-pins-list
-    "pa" 'slack-message-pins-add
-    "pr" 'slack-message-pins-remove
-    "mm" 'slack-message-write-another-buffer
-    "me" 'slack-message-edit
-    "md" 'slack-message-delete
-    "u" 'slack-room-update-messages
-    "2" 'slack-message-embed-mention
-    "3" 'slack-message-embed-channel)
-   (map! :n :map slack-edit-message-mode-map
-         :localleader
-    "k" 'slack-message-cancel-edit
-    "s" 'slack-message-send-from-buffer
-    "2" 'slack-message-embed-mention
-    "3" 'slack-message-embed-channel))
+        "c" 'slack-buffer-kill
+        "ra" 'slack-message-add-reaction
+        "rr" 'slack-message-remove-reaction
+        "rs" 'slack-message-show-reaction-users
+        "pl" 'slack-room-pins-list
+        "pa" 'slack-message-pins-add
+        "pr" 'slack-message-pins-remove
+        "mm" 'slack-message-write-another-buffer
+        "me" 'slack-message-edit
+        "md" 'slack-message-delete
+        "u" 'slack-room-update-messages
+        "2" 'slack-message-embed-mention
+        "3" 'slack-message-embed-channel)
+  (map! :n :map slack-edit-message-mode-map
+        :localleader
+        "k" 'slack-message-cancel-edit
+        "s" 'slack-message-send-from-buffer
+        "2" 'slack-message-embed-mention
+        "3" 'slack-message-embed-channel))
 
 (use-package! alert
   :commands (alert)
