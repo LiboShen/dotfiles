@@ -45,16 +45,16 @@
   :init
   (setq org-roam-directory "~/notes/roam/")
   (setq org-roam-capture-templates
-      '(
-        ("n" "note" plain (function org-roam-capture--get-point)
-         "%?"
-         :file-name "%<%Y%m%d%H%M%S>-${slug}"
-         :head "#+title: ${title}\n#+roam_alias:\n\n")
-        ("b" "book" plain (function org-roam-capture--get-point)
-         "%?"
-         :file-name "refs/books/%<%Y%m%d%H%M%S>-${slug}"
-         :head "#+title: ${title}\n#+roam_tags: book\n\n"))
-      )
+        '(
+          ("n" "note" plain (function org-roam-capture--get-point)
+           "%?"
+           :file-name "%<%Y%m%d%H%M%S>-${slug}"
+           :head "#+title: ${title}\n#+roam_alias:\n\n")
+          ("b" "book" plain (function org-roam-capture--get-point)
+           "%?"
+           :file-name "refs/books/%<%Y%m%d%H%M%S>-${slug}"
+           :head "#+title: ${title}\n#+roam_tags: book\n\n"))
+        )
   )
 
 (defun org-paste-image ()
@@ -62,16 +62,16 @@
 same directory as the org-buffer and insert a link to this file."
   (interactive)
   (let*
-        ((basename (concat (make-temp-name (format-time-string "%Y%m%d_%H%M%S_")) ".png"))
-        (dirname (concat "./images/"
-                                (replace-regexp-in-string " " "_"
-                                                        (downcase (file-name-base buffer-file-name)))))
-        (filename (concat (file-name-as-directory dirname) basename)))
-        (make-directory dirname t)
-        (if (eq system-type 'darwin) (call-process "pngpaste" nil nil nil filename))
-        ; insert into file if correctly taken
-        (if (file-exists-p filename) (insert (concat "[[file:" filename "]]"))))
-      )
+      ((basename (concat (make-temp-name (format-time-string "%Y%m%d_%H%M%S_")) ".png"))
+       (dirname (concat "./images/"
+                        (replace-regexp-in-string " " "_"
+                                                  (downcase (file-name-base buffer-file-name)))))
+       (filename (concat (file-name-as-directory dirname) basename)))
+    (make-directory dirname t)
+    (if (eq system-type 'darwin) (call-process "pngpaste" nil nil nil filename))
+                                        ; insert into file if correctly taken
+    (if (file-exists-p filename) (insert (concat "[[file:" filename "]]"))))
+  )
 
 (setq deft-directory "~/notes/roam/")
 
