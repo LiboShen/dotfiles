@@ -196,3 +196,13 @@ same directory as the org-buffer and insert a link to this file."
   :commands (alert)
   :init
   (setq alert-default-style 'notifier))
+
+;; Windows Management
+(setq evil-vsplit-window-right t
+      evil-split-window-below t)
+
+(defadvice! prompt-for-buffer (&rest _)
+  :after '(evil-window-split evil-window-vsplit)
+  (+ivy/switch-buffer))
+
+(setq +ivy-buffer-preview t)
