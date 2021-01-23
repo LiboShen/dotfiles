@@ -26,6 +26,20 @@
 ;; Auth sources
 (setq auth-sources '((:source "~/keys/.authinfo")))
 
+;; Iterate through CamelCase words
+(global-subword-mode 1)
+
+;; Which-key
+(setq which-key-idle-delay 0.5)
+;; hide verbose prefixes
+(setq which-key-allow-multiple-replacements t)
+(after! which-key
+  (pushnew!
+   which-key-replacement-alist
+   '(("" . "\\`+?evil[-:]?\\(?:a-\\)?\\(.*\\)") . (nil . "◂\\1"))
+   '(("\\`g s" . "\\`evilem--?motion-\\(.*\\)") . (nil . "◃\\1"))
+   ))
+
 ;; General key mappings
 (map! :nv "L" 'evil-end-of-visual-line)
 (map! :nv "H" 'evil-beginning-of-visual-line)
