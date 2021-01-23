@@ -23,10 +23,53 @@
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-one)
 
-;; If you use `org' and don't want your org files in the default location below,
-;; change `org-directory'. It must be set before org loads!
+;; General key mappings
+(map! :nv "L" 'evil-end-of-visual-line)
+(map! :nv "H" 'evil-beginning-of-visual-line)
+(map! :nv "j" 'evil-next-visual-line)
+(map! :nv "k" 'evil-previous-visual-line)
+(map! :n "] g" 'flycheck-next-error)
+(map! :n "[ g" 'flycheck-previous-error)
+(map! :n "C-s" 'save-buffer)
+
+(map! :map ivy-minibuffer-map
+      :ni "C-<return>" 'ivy-immediate-done)
+
+;; Orm-mode
 (setq org-directory "~/notes/org/")
-(setq org-roam-directory "~/notes/roam/")
+
+(use-package! org-roam
+  :init
+  (setq org-roam-directory "~/notes/roam/")
+  (setq org-roam-capture-templates
+      '(
+        ("n" "note" plain (function org-roam-capture--get-point)
+         "%?"
+         :file-name "%<%Y%m%d%H%M%S>-${slug}"
+         :head "#+title: ${title}\n#+roam_alias:\n\n")
+        ("b" "book" plain (function org-roam-capture--get-point)
+         "%?"
+         :file-name "refs/books/%<%Y%m%d%H%M%S>-${slug}"
+         :head "#+title: ${title}\n#+roam_tags: book\n\n"))
+      )
+  )
+
+(defun org-paste-image ()
+  "Save the image in the clipboard into a time stamped unique-named file in the
+same directory as the org-buffer and insert a link to this file."
+  (interactive)
+  (let*
+        ((basename (concat (make-temp-name (format-time-string "%Y%m%d_%H%M%S_")) ".png"))
+        (dirname (concat "./images/"
+                                (replace-regexp-in-string " " "_"
+                                                        (downcase (file-name-base buffer-file-name)))))
+        (filename (concat (file-name-as-directory dirname) basename)))
+        (make-directory dirname t)
+        (if (eq system-type 'darwin) (call-process "pngpaste" nil nil nil filename))
+        ; insert into file if correctly taken
+        (if (file-exists-p filename) (insert (concat "[[file:" filename "]]"))))
+      )
+
 (setq deft-directory "~/notes/roam/")
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
@@ -50,19 +93,6 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
-
-;; General key mappings
-(map! :nv "L" 'evil-end-of-visual-line)
-(map! :nv "H" 'evil-beginning-of-visual-line)
-(map! :nv "j" 'evil-next-visual-line)
-(map! :nv "k" 'evil-previous-visual-line)
-(map! :n "] g" 'flycheck-next-error)
-(map! :n "[ g" 'flycheck-previous-error)
-(map! :n "C-s" 'save-buffer)
-
-(map! :map ivy-minibuffer-map
-      :ni "C-<return>" 'ivy-immediate-done)
-
 
 ;; language servers
 (use-package! lsp
