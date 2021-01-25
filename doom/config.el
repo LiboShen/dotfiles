@@ -165,32 +165,33 @@ same directory as the org-buffer and insert a link to this file."
    :modeline-enabled t
    :full-and-display-names t)
 
-  (map! :n :map slack-info-mode-map
-        :localleader
-        "u" 'slack-room-update-messages)
-  (map! :n :map slack-mode-map
-        "\C-n" 'slack-buffer-goto-next-message
-        "\C-p" 'slack-buffer-goto-prev-message
-        :localleader
-        "c" 'slack-buffer-kill
-        "ra" 'slack-message-add-reaction
-        "rr" 'slack-message-remove-reaction
-        "rs" 'slack-message-show-reaction-users
-        "pl" 'slack-room-pins-list
-        "pa" 'slack-message-pins-add
-        "pr" 'slack-message-pins-remove
-        "mm" 'slack-message-write-another-buffer
-        "me" 'slack-message-edit
-        "md" 'slack-message-delete
-        "u" 'slack-room-update-messages
-        "2" 'slack-message-embed-mention
-        "3" 'slack-message-embed-channel)
-  (map! :n :map slack-edit-message-mode-map
-        :localleader
-        "k" 'slack-message-cancel-edit
-        "s" 'slack-message-send-from-buffer
-        "2" 'slack-message-embed-mention
-        "3" 'slack-message-embed-channel))
+  )
+
+(after! slack
+  (map! :map slack-info-mode-map
+        :n :localleader "u" 'slack-room-update-messages)
+  (map! (:map slack-mode-map
+         :n "C-n" 'slack-buffer-goto-next-message
+         :n "C-p" 'slack-buffer-goto-prev-message
+         :n :localleader "c" 'slack-buffer-kill
+         :n :localleader "ra" 'slack-message-add-reaction
+         :n :localleader "rr" 'slack-message-remove-reaction
+         :n :localleader "rs" 'slack-message-show-reaction-users
+         :n :localleader "pl" 'slack-room-pins-list
+         :n :localleader "pa" 'slack-message-pins-add
+         :n :localleader "pr" 'slack-message-pins-remove
+         :n :localleader "mm" 'slack-message-write-another-buffer
+         :n :localleader "me" 'slack-message-edit
+         :n :localleader "md" 'slack-message-delete
+         :n :localleader "u" 'slack-room-update-messages
+         :n :localleader "2" 'slack-message-embed-mention
+         :n :localleader "3" 'slack-message-embed-channel))
+  (map! (:map slack-edit-message-mode-map
+         :n :localleader "k" 'slack-message-cancel-edit
+         :n :localleader "s" 'slack-message-send-from-buffer
+         :n :localleader "2" 'slack-message-embed-mention
+         :n :localleader "3" 'slack-message-embed-channel))
+  )
 
 (use-package! alert
   :commands (alert)
