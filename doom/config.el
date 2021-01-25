@@ -117,13 +117,6 @@ same directory as the org-buffer and insert a link to this file."
   :init
   (add-to-list 'exec-path "~/bin/elixir-ls")
   :config
-  (lsp-register-client
-   (make-lsp-client :new-connection (lsp-stdio-connection
-                                     (-const "reason-language-server"))
-                    :major-modes '(reason-mode)
-                    :notification-handlers (ht ("client/registerCapability" 'ignore))
-                    :priority 1
-                    :server-id 'reason-ls))
   ;; handle yasnippet by myself
   (setq lsp-enable-snippet nil)
   (setq lsp-enable-file-watchers nil)
@@ -134,11 +127,13 @@ same directory as the org-buffer and insert a link to this file."
   (elixir-mode . lsp)
   )
 
+;; To avoid annoying ocaml-ls's json warning messages.
+(setq warning-minimum-level :error)
+
 (after! reason-mode
   (add-hook! reason-mode #'lsp)
   (add-hook! reason-mode (add-hook 'before-save-hook 'refmt-before-save))
   )
-
 
 ;; Abbreviations
 (setq abbrev-file-name             ;; tell emacs where to read abbrev
