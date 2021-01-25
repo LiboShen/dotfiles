@@ -55,21 +55,21 @@
 ;; Orm-mode
 (setq org-directory "~/notes/org/")
 
-(use-package! org-roam
-  :init
-  (setq org-roam-directory "~/notes/roam/")
-  (setq org-roam-capture-templates
-        '(
-          ("n" "note" plain (function org-roam-capture--get-point)
-           "%?"
-           :file-name "%<%Y%m%d%H%M%S>-${slug}"
-           :head "#+title: ${title}\n#+roam_alias:\n\n")
-          ("b" "book" plain (function org-roam-capture--get-point)
-           "%?"
-           :file-name "refs/books/%<%Y%m%d%H%M%S>-${slug}"
-           :head "#+title: ${title}\n#+roam_tags: book\n\n"))
-        )
-  )
+(setq org-roam-directory "~/notes/roam/")
+(setq org-roam-capture-templates
+      '(
+        ("n" "note" plain (function org-roam-capture--get-point)
+         "%?"
+         :file-name "%<%Y%m%d%H%M%S>-${slug}"
+         :head "#+title: ${title}\n#+roam_alias:\n\n")
+        ("b" "book" plain (function org-roam-capture--get-point)
+         "%?"
+         :file-name "refs/books/%<%Y%m%d%H%M%S>-${slug}"
+         :head "#+title: ${title}\n#+roam_tags: book\n\n")
+        ("a" "article" plain (function org-roam-capture--get-point)
+         "%?"
+         :file-name "refs/articles/%<%Y%m%d%H%M%S>-${slug}"
+         :head "#+title: ${title}\n#+roam_tags: article\n\n")))
 
 (defun org-paste-image ()
   "Save the image in the clipboard into a time stamped unique-named file in the
