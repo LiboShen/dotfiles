@@ -133,6 +133,10 @@ same directory as the org-buffer and insert a link to this file."
   (elixir-mode . lsp)
   )
 
+(map! :mode elixir-mode
+      :localleader
+      :desc "iMenu" :nv "/" #'lsp-ui-imenu)
+
 ;; To avoid annoying ocaml-ls's json warning messages.
 (setq warning-minimum-level :error)
 
