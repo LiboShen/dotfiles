@@ -93,6 +93,12 @@ same directory as the org-buffer and insert a link to this file."
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
 
+(setq
+ projectile-project-root-files-functions '(projectile-root-top-down)
+      projectile-project-root-files
+        '(".git" ".projectile" "mix.exs" "package.json")
+      )
+
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
@@ -116,10 +122,10 @@ same directory as the org-buffer and insert a link to this file."
   :defer
   :init
   (add-to-list 'exec-path "~/bin/elixir-ls")
-  :config
-  ;; handle yasnippet by myself
   (setq lsp-enable-snippet nil)
   (setq lsp-enable-file-watchers nil)
+  :config
+  ;; handle yasnippet by myself
   (push "[/\\\\]_build" lsp-file-watch-ignored )
   (push "[/\\\\]deps" lsp-file-watch-ignored )
   (push "[/\\\\].elixir_ls" lsp-file-watch-ignored )
