@@ -107,10 +107,12 @@ same directory as the org-buffer and insert a link to this file."
 (setq display-line-numbers-type t)
 
 (setq
- projectile-project-root-files-functions '(projectile-root-top-down)
-      projectile-project-root-files
-        '(".git" ".projectile" "mix.exs" "package.json")
-      )
+ projectile-project-root-files-functions '(projectile-root-top-down
+                                           ;projectile-root-top-down-recurring
+                                           )
+ projectile-project-root-files
+ '(".git" ".projectile" "mix.exs" "package.json")
+ )
 
 
 ;; Here are some additional functions/macros that could help you configure Doom:
