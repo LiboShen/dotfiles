@@ -51,6 +51,8 @@
 
 (map! :map ivy-minibuffer-map
       :ni "C-<return>" 'ivy-immediate-done)
+(map! :map minibuffer-inactive-mode-map
+      :ni "C-<return>" 'ivy-immediate-done)
 
 ;; Orm-mode
 (setq org-directory "~/notes/org/")
