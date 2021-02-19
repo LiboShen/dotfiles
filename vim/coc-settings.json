@@ -13,6 +13,11 @@
       "initializationOptions": {
         "elmAnalyseTrigger": "change"
       }
+    },
+    "reasonml": {
+      "command": "reason-language-server",
+      "rootPatterns": ["bsconfig.json"],
+      "filetypes": ["reason"]
     }
   },
   "codeLens.enable": true

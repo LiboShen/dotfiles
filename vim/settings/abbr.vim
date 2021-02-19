@@ -7,3 +7,4 @@ abbr enviorenment environment
 
 autocmd FileType elixir :iabbrev <buffer> pp \|>
 autocmd FileType elm :iabbrev <buffer> pp \|>
+autocmd FileType reason :iabbrev <buffer> pp \|>

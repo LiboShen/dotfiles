@@ -32,6 +32,8 @@ Plug 'elixir-editors/vim-elixir'
 Plug 'slashmili/alchemist.vim'
 Plug 'andys8/vim-elm-syntax'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'reasonml-editor/vim-reason-plus'
+Plug 'amiralies/vim-rescript'
 
 " Git
 " ========================================
