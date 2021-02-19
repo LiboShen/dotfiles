@@ -51,3 +51,4 @@
 
 (package! reason-mode)
 (package! slack)
+(package! evil-string-inflection)

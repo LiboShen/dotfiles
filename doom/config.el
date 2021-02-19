@@ -49,6 +49,9 @@
 (map! :n "[ g" 'flycheck-previous-error)
 (map! :n "C-s" 'save-buffer)
 
+(use-package! evil-string-inflection)
+(map! :n "g ~" 'evil-operator-string-inflection)
+
 (map! :map ivy-minibuffer-map
       :ni "C-<return>" 'ivy-immediate-done)
 (map! :map minibuffer-inactive-mode-map
