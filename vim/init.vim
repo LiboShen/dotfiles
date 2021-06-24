@@ -4,8 +4,7 @@ set number
 set history=1000
 set novisualbell  " Don't flash.
 set autoread
-set mouse=n  " Mouse is good in normal mode.
-
+set mouse=n  " Mouse is good in normal mode. 
 "turn on syntax highlighting
 syntax on
 
@@ -24,6 +23,9 @@ Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'kamykn/spelunker.vim'
+" Plug 'reedes/vim-pencil'
+" Plug 'reedes/vim-lexical'
+" Plug 'reedes/vim-wordy'
 
 " Languages
 Plug 'leafgarland/typescript-vim'
@@ -31,6 +33,7 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'elixir-editors/vim-elixir'
 Plug 'slashmili/alchemist.vim'
 Plug 'andys8/vim-elm-syntax'
+Plug 'hashivim/vim-terraform'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'reasonml-editor/vim-reason-plus'
 Plug 'amiralies/vim-rescript'
@@ -112,8 +115,8 @@ set tabstop=2
 set expandtab
 
 " Auto indent pasted text
-nnoremap p p=`]
-nnoremap P P=`]
+" nnoremap p p=`]
+" nnoremap P P=`]
 
 filetype plugin on
 filetype indent on
@@ -174,6 +177,9 @@ noremap <F4> :call Term_toggle()<cr>
 
 " nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
 " nnoremap <leader>jr :YcmCompleter GoToReferences<CR>
+"
+nnoremap j gj
+nnoremap k gk
 
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
@@ -181,9 +187,10 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 
 nnoremap <C-s> :w<CR>
+nnoremap <C-x> :q<CR>
 
-autocmd BufWinLeave *.* mkview
-autocmd BufWinEnter *.* silent! loadview
+" autocmd BufWinLeave *.* mkview
+" autocmd BufWinEnter *.* silent! loadview
 
 " -----------------------------------------------------------------------------
 " coc.nvim configs
