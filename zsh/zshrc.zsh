@@ -33,6 +33,7 @@ source "$DOTFILES/zsh/aliases.zsh"
 # Basic PATH
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH"
 export PATH=$PATH:$HOME/bin
+export PATH=$PATH:$HOME/.emacs.d/bin
 
 # TypeScript Settings
 NODE_PATH=$NODE_PATH:$HOME/node_modules
@@ -42,6 +43,7 @@ if [ -f "$DOTFILES/private/zshrc.zsh" ]; then
 fi
 
 export GOPATH=$HOME/go
+export GOPATH=$HOME/dev/go
 export PATH=$PATH:$GOPATH/bin
 
 # Elixir/Erlang REPL history.
@@ -54,3 +56,4 @@ typeset -U PATH # Remove duplicates in $PATH
 fpath=("$DOTFILES/zsh" "${fpath[@]}")
 
 autoload -Uz kp ks ll
+[[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh) # add autocomplete permanently to your zsh shell
