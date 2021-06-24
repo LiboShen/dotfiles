@@ -50,5 +50,8 @@
 ;(unpin! t)
 
 (package! reason-mode)
+(package! dhall-mode)
 (package! slack)
+; server that responds to edit requests from Chrome
+(package! edit-server)
 (package! evil-string-inflection)
