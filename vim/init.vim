@@ -45,7 +45,6 @@ Plug 'amiralies/vim-rescript'
 " ========================================
 Plug 'itchyny/lightline.vim'
 Plug 'ayu-theme/ayu-vim'
-Plug 'nikitavoloboev/vim-monokai-night' " Theme
 " Plug 'morhetz/gruvbox'
 
 " Textobjects
@@ -145,8 +144,7 @@ set background=dark
 " let ayucolor="dark"
 " let ayucolor="mirage"
 " let ayucolor="light"
-" colorscheme ayu
-colorscheme monokai-night
+colorscheme ayu
 
 " ================ Custom Settings ==================
 so $VIMRCDIR/settings.vim
