@@ -127,7 +127,7 @@ same directory as the org-buffer and insert a link to this file."
 (use-package! lsp
   :defer
   :init
-  (add-to-list 'exec-path "~/bin/elixir-ls")
+  (setq lsp-elixir-server-command '("~/bin/elixir-ls/language_server.sh"))
   (setq lsp-enable-snippet nil)
   (setq lsp-enable-file-watchers nil)
   :config
@@ -136,7 +136,7 @@ same directory as the org-buffer and insert a link to this file."
   (push "[/\\\\]deps" lsp-file-watch-ignored )
   (push "[/\\\\].elixir_ls" lsp-file-watch-ignored )
   :hook
-  ((elixir-mode . lsp)
+  (
    (dhall-mode . lsp))
   )
 
@@ -179,12 +179,13 @@ same directory as the org-buffer and insert a link to this file."
 (use-package! projectile
   :config
   (setq
-   projectile-project-root-files-functions '(projectile-root-top-down
-                                        ;projectile-root-top-down-recurring
-                                             ))
+   projectile-project-root-files-bottom-up
+   '(".projectile" "mix.exs" "package.json" "pyproject.toml" ".git" ))
   (setq
    projectile-project-root-files
-   '(".git" ".projectile" "mix.exs" "package.json" "pyproject.toml"))
+   '(".projectile" "mix.exs" "package.json" "pyproject.toml" ".git" ))
+  (setq
+   projectile-project-root-functions '( projectile-root-bottom-up))
   )
 
 
