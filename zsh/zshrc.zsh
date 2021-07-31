@@ -34,6 +34,7 @@ source "$DOTFILES/zsh/aliases.zsh"
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH"
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/.emacs.d/bin
+eval $(opam env)
 
 # TypeScript Settings
 NODE_PATH=$NODE_PATH:$HOME/node_modules
