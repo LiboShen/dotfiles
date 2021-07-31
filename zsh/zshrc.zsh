@@ -56,4 +56,8 @@ typeset -U PATH # Remove duplicates in $PATH
 fpath=("$DOTFILES/zsh" "${fpath[@]}")
 
 autoload -Uz kp ks ll
+eval "$(/opt/homebrew/bin/brew shellenv)"
+source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 [[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh) # add autocomplete permanently to your zsh shell
+

@@ -1,6 +1,6 @@
 [user]
-  name = Libo Shen
-  email = liboooshen@gmail.com
+	name = Libo Shen
+	email = liboooshen@gmail.com
 [alias]
   co = checkout
   ci = commit
